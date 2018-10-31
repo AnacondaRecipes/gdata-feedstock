@@ -1,0 +1,80 @@
+{% set name = "gdata" %}
+{% set version = "2.0.18" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 56e7d22de819c22b13ceb0fe1869729b4287f89ebbd4bb55380d7bcf61a1fdb6
+
+build:
+  number: 0
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv "
+
+requirements:
+  host:
+    - pip
+    - python
+  run:
+    - python
+
+test:
+  imports:
+    - atom
+    - gdata
+    - gdata.Crypto
+    - gdata.Crypto.Cipher
+    - gdata.Crypto.Hash
+    - gdata.Crypto.Protocol
+    - gdata.Crypto.PublicKey
+    - gdata.Crypto.Util
+    - gdata.acl
+    - gdata.alt
+    - gdata.analytics
+    - gdata.apps
+    - gdata.apps.adminsettings
+    - gdata.apps.audit
+    - gdata.apps.emailsettings
+    - gdata.apps.groups
+    - gdata.apps.migration
+    - gdata.apps.multidomain
+    - gdata.apps.organization
+    - gdata.blogger
+    - gdata.books
+    - gdata.calendar
+    - gdata.calendar_resource
+    - gdata.codesearch
+    - gdata.contacts
+    - gdata.contentforshopping
+    - gdata.docs
+    - gdata.dublincore
+    - gdata.exif
+    - gdata.finance
+    - gdata.geo
+    - gdata.health
+    - gdata.media
+    - gdata.notebook
+    - gdata.oauth
+    - gdata.opensearch
+    - gdata.photos
+    - gdata.projecthosting
+    - gdata.sites
+    - gdata.spreadsheet
+    - gdata.spreadsheets
+    - gdata.tlslite
+    - gdata.tlslite.integration
+    - gdata.tlslite.utils
+    - gdata.webmastertools
+    - gdata.youtube
+
+about:
+  home: http://code.google.com/p/gdata-python-client/
+  license: Apache 2.0
+  license_family: APACHE
+  license_file: 
+  summary: Python client library for Google data APIs
+  doc_url: 
+  dev_url: 
+
